@@ -3,16 +3,17 @@ import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import SendIcon from "@mui/icons-material/Send";
+import theme from "../../styles/theme";
 
 const ChatRoom = () => {
   return (
-    <Grid sx={{ marginTop: "80px" }} container spacing={2}>
-      <Grid item xs={12} sm={4}>
+    <Grid sx={{ marginTop: "75px" }} container spacing={2}>
+      <Grid item xs={12} sm={3}>
         {/* Box 1 */}
-        <Box sx={{ margin: "0px 5px" }} position="relative" color="white" p={2}>
+        <Box sx={{ margin: "0px 5px", height: "calc(50vh - 80px)" }} position="relative" color="white" p={1}>
           <video
             width="100%"
-            height="auto"
+            height="100%"
             controls // Add controls (play, pause, etc.)
           >
             <source
@@ -23,7 +24,6 @@ const ChatRoom = () => {
           </video>
           <Box
             color="white"
-            p={1}
             position="absolute"
             top={10}
             right={10}
@@ -32,7 +32,7 @@ const ChatRoom = () => {
           >
             <video
               width="100%"
-              height="auto"
+              height="100%"
               controls // Add controls (play, pause, etc.)
             >
               <source
@@ -43,17 +43,15 @@ const ChatRoom = () => {
             </video>
           </Box>
         </Box>
-      </Grid>
-      <Grid item xs={12} sm={8}>
-        {/* Box 2 */}
-        <Box bgcolor="secondary.main" color="white" sx={{ margin: "0px 5px" }} p={2}></Box>
-      </Grid>
-      <Grid item xs={12} sm={4} display={{ sm: "block", xs: "none" }}>
-        {/* Box 3 */}
-        <Box color="white" sx={{ margin: "0px 5px" }} p={2}>
+        <Box
+          color="white"
+          display={{ sm: "block", xs: "none" }}
+          sx={{ margin: "0px 5px", height: "calc(50vh - 80px)" }}
+          p={1}
+        >
           <video
             width="100%"
-            height="auto"
+            height="100%"
             controls // Add controls (play, pause, etc.)
           >
             <source
@@ -64,10 +62,24 @@ const ChatRoom = () => {
           </video>
         </Box>
       </Grid>
-      <Grid item xs={12} sm={8}>
-        {/* Box 4 */}
-        <Box color="white" sx={{ margin: "0px 5px" }} p={2}>
-          <Button>New</Button>
+      <Grid
+        item
+        xs={12}
+        sm={9}
+        sx={{
+          height: "calc(100vh-34px)",
+          // Define the height for mobile using theme breakpoints
+          [theme.breakpoints.down("sm")]: {
+            height: "calc(100vh - 530px)",
+          },
+        }}
+      >
+        {/* Box 2 */}
+        <Box color="white" sx={{ margin: "0px 5px", height: "80%", border: "1px solid black" }} p={1}>
+          
+        </Box>
+        <Box  display="flex" alignItems="center" color="white" p={1}>
+          <Button variant="contained" sx={{margin:1, height:"45px"}}>New</Button>
           <TextField
             variant="outlined"
             fullWidth
